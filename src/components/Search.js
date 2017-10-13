@@ -13,6 +13,7 @@ class Search extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
         // this.searchQuery = this.searchQuery.bind(this);
+        this.handleReset = this.handleReset.bind(this);
     }
 
     onChange(event) {
@@ -44,8 +45,12 @@ class Search extends Component {
         event.preventDefault();
         this.searchQuery();
         // console.log("Search Click", this.state.query);
-
     }
+
+    handleReset(event) {
+        // redirect('/');
+    }
+
     render() {
         return (
             <div className="container">
@@ -61,7 +66,6 @@ class Search extends Component {
                                 <label >Search Term:</label>
                                 <input type="text" className="form-control" id="search-term"
                                     onChange={this.onChange}
-
                                 />
                             </div>
                             <button
@@ -72,7 +76,7 @@ class Search extends Component {
                             >Search
                         </button>
                             <button
-                                type="button"
+                                type="submit"
                                 className="btn btn-default"
                                 id="clear-all"
                                 onClick={this.handleReset}>
