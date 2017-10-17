@@ -2,26 +2,46 @@ import React, { Component } from 'react';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import helpers from '../utils/helpers';
 
-class Results extends Component {  
+class Results extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-            attr: '',
-            title: '',
-            webURL: '',
-            webSnippet: '',
-            date: '',
-        }
+        // this.state = {
+        //     // attr: '',
+        //     title: '',
+        //     webURL: '',
+        //     webSnippet: '',
+        //     date: '',
+        // }
 
+        // this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.articleData = new helpers();
     }
 
-    
+    // handleChange(event) {
+
+    //     console.log(event);
+    //     let newState = {};
+    //     newState[event.target.id] = event.target.value;
+    //     this.setState(newState);
+    //     console.log(newState);
+    // }
+
     handleSubmit(event) {
+
         event.preventDefault();
-        console.log(event);
+        // let articleSaved = {
+        //     articleTitle: this.state.title,
+        //     snippet: this.state.webSnippet,
+        //     date: this.state.date,
+        //     url: this.state.webURL
+        // }
+
+        const articleInfo = event.target.value;
+        console.log(articleInfo);
+
+        this.articleData.saveArticles(articleInfo);
 
     }
 
@@ -52,13 +72,15 @@ class Results extends Component {
                                             Date Published: {pub_date}
                                         </h6>
                                         <a href={web_url}>Link to full article</a>
-                                        <br/>
-                                        
-                                        <Button type='submit' className='btn btn-default'
-                                                onClick={this.handleSubmit}>
-                                            Save Article
+                                        <br />
+
+                                        <Button
+                                            type='submit'
+                                            onClick={this.handleSubmit}
+                                            className='btn btn-default'
+                                            value={_id}> Save Article
                                         </Button>
-                                        
+
                                         <hr className="featurette-divider" />
                                     </div>
                                 )

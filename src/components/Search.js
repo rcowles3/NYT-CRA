@@ -37,7 +37,7 @@ class Search extends Component {
                 let { docs } = json.response;
                 this.setState({ docs })
                 // console.log(json);
-                console.log("Response: \n\n", docs);
+                // console.log("Response: \n\n", docs);
             });
     }
 
