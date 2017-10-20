@@ -9,17 +9,17 @@ var ArticleSchema = new Schema({
         trim: true,
         required: "Title is Required"
     },
-    snippet: {
+    description: {
         type: String,
         trim: true,
         required: "Snippet is Required"
     },
-    date: {
+    pubDate: {
         type: Date,
         default: Date.now,
         required: "Date is Required"
     },
-    url: {
+    webUrl: {
         type: String,
         required: true,
         required: "URL is Required",

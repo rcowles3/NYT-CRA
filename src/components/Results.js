@@ -15,7 +15,7 @@ class Results extends Component {
         // }
 
         // this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClick = this.handleClick.bind(this);
         this.articleData = new helpers();
     }
 
@@ -28,20 +28,24 @@ class Results extends Component {
     //     console.log(newState);
     // }
 
-    handleSubmit(event) {
+    handleClick(article) {
+        // console.log("clicked");
+        // console.log(article);
+        // event.preventDefault();
 
-        event.preventDefault();
-        // let articleSaved = {
-        //     articleTitle: this.state.title,
-        //     snippet: this.state.webSnippet,
-        //     date: this.state.date,
-        //     url: this.state.webURL
-        // }
+        let articleSaved = {
+            title: article.headline.main,
+            description: article.snippet,
+            datePosted: article.pub_date,
+            webUrl: article.web_url
+        }
 
-        const articleInfo = event.target.value;
-        console.log(articleInfo);
+        console.log(articleSaved);
 
-        this.articleData.saveArticles(articleInfo);
+        // const articleInfo = event.target.value;
+        // console.log(articleInfo);
+
+        this.articleData.saveArticles(articleSaved);
 
     }
 
@@ -76,9 +80,9 @@ class Results extends Component {
 
                                         <Button
                                             type='submit'
-                                            onClick={this.handleSubmit}
+                                            onClick={() => this.handleClick(item)}
                                             className='btn btn-default'
-                                            value={_id}> Save Article
+                                        > Save Article
                                         </Button>
 
                                         <hr className="featurette-divider" />

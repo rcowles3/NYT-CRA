@@ -72,11 +72,9 @@ db.once("open", function () {
     console.log("Mongoose connection successful.");
 });
 
-// Route Handlers
-// const dataScrape = require("./routes/dataScrape");
-// const userRoutes = require("./routes/userRoutes");
-// app.use("/api", dataScrape);
-// app.use("/users", userRoutes);
+// // Route Handlers
+const dbRoutes = require("./routes/dbRoutes");
+app.use("/api", dbRoutes);
 
 
 //----------------------------------------------------------------
