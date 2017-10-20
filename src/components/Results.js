@@ -19,19 +19,7 @@ class Results extends Component {
         this.articleData = new helpers();
     }
 
-    // handleChange(event) {
-
-    //     console.log(event);
-    //     let newState = {};
-    //     newState[event.target.id] = event.target.value;
-    //     this.setState(newState);
-    //     console.log(newState);
-    // }
-
     handleClick(article) {
-        // console.log("clicked");
-        // console.log(article);
-        // event.preventDefault();
 
         let articleSaved = {
             title: article.headline.main,
@@ -40,13 +28,7 @@ class Results extends Component {
             webUrl: article.web_url
         }
 
-        console.log(articleSaved);
-
-        // const articleInfo = event.target.value;
-        // console.log(articleInfo);
-
         this.articleData.saveArticles(articleSaved);
-
     }
 
     render() {

@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 //include my models with database schema
 const Article = require("./models/Article");
+require('dotenv').config({path: '../.env'});
+
 
 //Leverage built in JS ES6 Promises
 mongoose.Promise = Promise;
@@ -53,7 +55,9 @@ app.use(function (req, res, next) {
 });
 //Database configuration with mongoose
 const localDeploy = "mongodb://localhost:27017/nytreact";
-const herokuDeploy = 'mongodb://heroku_qls9xw3z:9kclrucuf2af6stvk0engod2s0@ds157584.mlab.com:57584/heroku_qls9xw3z';
+
+const herokuENV = process.env.MONGOLAB_URI;
+console.log(herokuENV);
 
 //mongoose.connect
 mongoose.connect(localDeploy,

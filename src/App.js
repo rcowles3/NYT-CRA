@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import { Jumbotron, Button, ButtonToolbar } from 'react-bootstrap';
 import Footer from './components/Footer';
-// import helpers from '../../../FitRep-v2.0/client/src/utils/helpers'
 import Search from './components/Search';
 import './App.css';
+const Link = require("react-router").Link;
+
 
 class App extends Component {
 
@@ -49,8 +50,11 @@ class App extends Component {
         <Jumbotron>
           <h1>New York Times Article Database</h1>
           <p>Through the use of this applicatino, you can search for the latest news from the New York Times, as well as save articles for later reading.</p>
-          <ButtonToolbar>            
-            <Button bsSize="large">View Saved</Button>
+          <ButtonToolbar>
+            <Button
+              href='/saved'
+              bsSize="large">View Saved
+              </Button>
           </ButtonToolbar>
         </Jumbotron>
         <Search setTerm={this.setTerm} />
