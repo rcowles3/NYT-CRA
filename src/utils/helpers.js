@@ -2,7 +2,7 @@ import axios from 'axios';
 require('dotenv').config({ path: '../../.env' });
 
 const localDB = 'http://localhost:4200';
-const herokuENV = process.env.MONGOLAB_URI;
+const herokuENV = 'mongodb://heroku_nxxvbp21:608lqu5e9q41ul62gk4lmnsdv3@ds125555.mlab.com:25555/heroku_nxxvbp21';
 
 class helpers {
     saveArticles(data) {
@@ -11,7 +11,7 @@ class helpers {
 
         console.log(herokuENV);
 
-        axios.post('/api/save', {
+        axios.post(`${herokuENV}/api/save`, {
             SaveArticle: data
         })
             .then(res => this.setState({
@@ -23,7 +23,7 @@ class helpers {
     showArticles(data) {
         console.log(data);
 
-        return axios.post('/api/saved-articles', {
+        return axios.post(`${herokuENV}/api/saved-articles`, {
             ArticlesSaved: data
         })
             .then(res => this.setState({
@@ -34,7 +34,7 @@ class helpers {
 
     deleteArticles(data) {
         // console.log(data);
-        return axios.post('/api/delete', {
+        return axios.post(`${herokuENV}/api/delete`, {
             deleteArticle: data
         })
             .then(res => this.setState({
