@@ -11,7 +11,7 @@ class helpers {
 
         console.log(herokuENV);
 
-        axios.post(`${herokuENV}/api/save`, {
+        axios.post(`${localDB}/api/save`, {
             SaveArticle: data
         })
             .then(res => this.setState({
@@ -23,7 +23,7 @@ class helpers {
     showArticles(data) {
         console.log(data);
 
-        return axios.post(`${herokuENV}/api/saved-articles`, {
+        return axios.post(`${localDB}/api/saved-articles`, {
             ArticlesSaved: data
         })
             .then(res => this.setState({
@@ -34,7 +34,7 @@ class helpers {
 
     deleteArticles(data) {
         // console.log(data);
-        return axios.post(`${herokuENV}/api/delete`, {
+        return axios.post(`${localDB}/api/delete`, {
             deleteArticle: data
         })
             .then(res => this.setState({
