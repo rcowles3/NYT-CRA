@@ -57,10 +57,10 @@ app.use(function (req, res, next) {
 const localDeploy = "mongodb://localhost:27017/nytreact";
 
 const herokuENV = process.env.MONGOLAB_URI;
-console.log(herokuENV);
+// console.log(herokuENV);
 
 //mongoose.connect
-mongoose.connect(localDeploy,
+mongoose.connect(herokuENV,
     {
         useMongoClient: true
     });
