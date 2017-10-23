@@ -4,8 +4,7 @@ import { Jumbotron, Button, ButtonToolbar } from 'react-bootstrap';
 import Footer from './components/Footer';
 import Search from './components/Search';
 import './App.css';
-const Link = require("react-router").Link;
-
+import Navbar from './components/Navbar'
 
 class App extends Component {
 
@@ -21,21 +20,6 @@ class App extends Component {
     this.setTerm = this.setTerm.bind(this);
   }
 
-  // componentDidUpdate(prevProps, prevState) {
-
-  //   if (prevState.searchTerm !== this.state.searchTerm) {
-  //     console.log("UPDATED");
-
-  //     helpers.runQuery(this.state.searchTerm).then((data) => {
-  //       if (data !== this.state.results) {
-  //         console.log(data);
-
-  //         this.setState({ results: data });
-  //       }
-  //     });
-  //   }
-  // }
-
   setTerm(term) {
     this.setState({
       searchTerm: term
@@ -45,22 +29,16 @@ class App extends Component {
   render() {
 
     return (
-
-      <div className="container">
-        <Jumbotron>
-          <h1>New York Times Article Database</h1>
-          <p>Through the use of this applicatino, you can search for the latest news from the New York Times, as well as save articles for later reading.</p>
-          <ButtonToolbar>
-            <Button
-              href='/saved'
-              bsSize="large">View Saved
-              </Button>
-          </ButtonToolbar>
-        </Jumbotron>
-        <Search setTerm={this.setTerm} />
-
+      <div>
+        <Navbar />
+        <div className="container">
+          <Jumbotron className="text-center">
+            <h1>New York Times Article Search</h1>
+            <p>Through the use of this application, you can search for the latest news from the New York Times, as well as save articles for later reading.</p>
+          </Jumbotron>
+          <Search setTerm={this.setTerm} />
+        </div>
         <Footer />
-
       </div>
     );
   }

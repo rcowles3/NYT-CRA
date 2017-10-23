@@ -63,7 +63,7 @@ class Search extends Component {
                     <div className="card-body">
                         <form role="form">
                             <div className="form-group">
-                                <label >Search Term:</label>
+                                <h3 className="card-header" >Search Term:</h3>
                                 <input type="text" className="form-control" id="search-term"
                                     onChange={this.onChange}
                                 />

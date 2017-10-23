@@ -4,7 +4,7 @@ class Footer extends React.Component {
 
     render() {
         return (
-            <footer>
+            <footer className="footer">
                 <hr className="featurette-divider" />
                 <p className="text-center">
                     Application Developed For Educational Purposes By <a href="https://rcowles.com">Ryan Cowles

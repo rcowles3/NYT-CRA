@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Button, ButtonToolbar } from 'react-bootstrap';
 import helpers from '../utils/helpers';
 import axios from 'axios';
+import Navbar from './Navbar';
+import Footer from './Footer'
 
 class Saved extends Component {
     constructor(props) {
@@ -49,46 +51,52 @@ class Saved extends Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="col-sm-12">
-                    <br />
-                    <div className="card">
-                        <div className="card-heading text-center">
-                            <h3 className="card-title card-header">
-                                <strong>Saved Articles</strong>
-                            </h3>
-                        </div>
-                        <div className="card-body">
-                            {this.state.articles.map((article, index) => {
-                                let { description, pubDate, title, webUrl, _id } = article;
-                                return (
-                                    <div key={index} attr={_id}>
-                                        <h4>
-                                            {title}
-                                        </h4>
-                                        <p>
-                                            {description}
-                                        </p>
-                                        <h6>
-                                            Date Published: {pubDate}
-                                        </h6>
-                                        <a href={webUrl}>Link to full article</a>
-                                        <br />
+            <div>
+                <Navbar />
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <br />
+                            <div className="card">
+                                <div className="card-heading text-center">
+                                    <h3 className="card-title card-header">
+                                        <strong>Saved Articles</strong>
+                                    </h3>
+                                </div>
+                                <div className="card-body">
+                                    {this.state.articles.map((article, index) => {
+                                        let { description, pubDate, title, webUrl, _id } = article;
+                                        return (
+                                            <div key={index} attr={_id}>
+                                                <h4>
+                                                    {title}
+                                                </h4>
+                                                <p>
+                                                    {description}
+                                                </p>
+                                                <h6>
+                                                    Date Published: {pubDate}
+                                                </h6>
+                                                <a href={webUrl}>Link to full article</a>
+                                                <br />
 
-                                        <Button
-                                            type='submit'
-                                            onClick={() => this.handleClick(article)}
-                                            className='btn btn-default'
-                                        > Delete Article
+                                                <Button
+                                                    type='submit'
+                                                    onClick={() => this.handleClick(article)}
+                                                    className='btn btn-default'
+                                                > Delete Article
                                         </Button>
 
-                                        <hr className="featurette-divider" />
-                                    </div>
-                                )
-                            })}
+                                                <hr className="featurette-divider" />
+                                            </div>
+                                        )
+                                    })}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <Footer />
             </div>
         )
     }
