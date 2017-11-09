@@ -28,7 +28,7 @@ class Saved extends Component {
 
     // this.articleData.showArticles();
     axios
-      .post("/saved-articles", {
+      .post("/api/saved-articles", {
         articlesSaved: articlesSaved
       })
       .then(res => {
