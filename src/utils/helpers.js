@@ -2,7 +2,10 @@ import axios from "axios";
 
 class helpers {
   saveArticles(data) {
-    // console.log("Request recieved from react component, to the backend: \n", data);
+    console.log(
+      "Request recieved from react component, to the backend: \n",
+      data
+    );
 
     axios
       .post("/api/save", {

@@ -2,6 +2,11 @@
   "name": "nytimes",
   "version": "0.1.0",
   "private": true,
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:4200"
+    }
+  },
   "dependencies": {
     "axios": "^0.16.2",
     "body-parser": "^1.18.2",
@@ -26,10 +31,5 @@
     "dev-server": "npm run server --prefix Backend",
     "client": "npm run start",
     "dev": "concurrently \"npm run dev-server\" \"npm run client\""
-  },
-  "proxy": {
-    "/api/*": {
-      "target": "http://localhost:4200"
-    }
   }
 }

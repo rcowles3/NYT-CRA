@@ -76,7 +76,7 @@ db.once("open", function() {
 
 // // Route Handlers
 const dbRoutes = require("./routes/dbRoutes");
-app.use("/api/*", dbRoutes);
+app.use("/api", dbRoutes);
 
 //----------------------------------------------------------------
 // Listener
