@@ -2,8 +2,6 @@
   "name": "nytimes",
   "version": "0.1.0",
   "private": true,
-  "root": "build/",
-  "heroku-postbuild": "npm install --only=dev && npm install && npm run build",
   "proxy": {
     "/api/*": {
       "target": "http://localhost:4200"
