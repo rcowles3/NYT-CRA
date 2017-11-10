@@ -2,6 +2,7 @@
   "name": "nytimes",
   "version": "0.1.0",
   "private": true,
+  "root": "build/",
   "proxy": {
     "/api/*": {
       "target": "http://localhost:4200"
