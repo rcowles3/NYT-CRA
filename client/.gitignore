@@ -5,7 +5,7 @@
 
 # testing
 /coverage
-/config/dev.js
+/Backend/config/dev.js
 
 #env variables
 .env
