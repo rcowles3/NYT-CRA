@@ -23,9 +23,9 @@ app.use(cors());
 
 // Set up a static folder (public) for our web app
 // app.use(express.static("public"));
-
+//
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, "client/build")));
+app.use(express.static(path.resolve(__dirname, "../react-ui/build")));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -78,6 +78,12 @@ db.once("open", function() {
 // // Route Handlers
 // const dbRoutes = require("./routes/dbRoutes");
 // app.use("/api", dbRoutes);
+
+// All remaining requests return the React app, so it can handle routing.
+app.get("*", function(request, response) {
+  response.sendFile(path.resolve(__dirname, "../react-ui/build", "index.html"));
+});
+
 app.route("/api/saved-articles").post((req, res) => {
   console.log("\n\n\nROUTE HIT!\n\n\n");
 
