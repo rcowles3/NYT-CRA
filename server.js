@@ -75,8 +75,20 @@ db.once("open", function() {
 });
 
 // // Route Handlers
-const dbRoutes = require("./routes/dbRoutes");
-app.use("/api", dbRoutes);
+// const dbRoutes = require("./routes/dbRoutes");
+// app.use("/api", dbRoutes);
+app.route("/api/saved-articles").post((req, res) => {
+  console.log("\n\n\nROUTE HIT!\n\n\n");
+
+  Article.find({}).exec(function(err, info, doc) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(info);
+      console.log(info);
+    }
+  });
+});
 
 //----------------------------------------------------------------
 // Listener
