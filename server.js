@@ -7,6 +7,7 @@ const cors = require("cors");
 //include my models with database schema
 const Article = require("./models/Article");
 const keys = require("./config/keys");
+const path = require("path");
 
 //Leverage built in JS ES6 Promises
 mongoose.Promise = Promise;
@@ -19,12 +20,12 @@ const app = express();
 // Use middlewares to set view engine and post json data to the server
 app.options("*", cors()); // include before other routes
 app.use(cors());
-app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
 
 // Set up a static folder (public) for our web app
-app.use(express.static("public"));
+// app.use(express.static("public"));
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "client/build")));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
