@@ -76,13 +76,20 @@ db.once("open", function() {
 });
 
 // // Route Handlers
-// const dbRoutes = require("./routes/dbRoutes");
-// app.use("/api", dbRoutes);
+const dbRoutes = require("./routes/dbRoutes");
+app.use("/api", dbRoutes);
 
-// All remaining requests return the React app, so it can handle routing.
-app.get("*", function(request, response) {
-  response.sendFile(path.resolve(__dirname, "../react-ui/build", "index.html"));
-});
+if (process.NODE_ENV === "production") {
+  // Express will serve prod assets
+  app.use(express.static("react-ui/build"));
+
+  // All remaining requests return the React app, so it can handle routing.
+  app.get("*", function(request, response) {
+    response.sendFile(
+      path.resolve(__dirname, "../react-ui/build", "index.html")
+    );
+  });
+}
 
 app.route("/api/saved-articles").post((req, res) => {
   console.log("\n\n\nROUTE HIT!\n\n\n");
