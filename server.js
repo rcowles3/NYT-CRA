@@ -76,8 +76,8 @@ db.once("open", function() {
 });
 
 // // Route Handlers
-// const dbRoutes = require("./routes/dbRoutes");
-// app.use("/api", dbRoutes);
+const dbRoutes = require("./routes/dbRoutes");
+app.use("/api", dbRoutes);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("react-ui/build"));
