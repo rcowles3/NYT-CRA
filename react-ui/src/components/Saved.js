@@ -74,7 +74,7 @@ class Saved extends Component {
                         <Button
                           type="submit"
                           onClick={() => this.handleClick(article)}
-                          className="btn btn-default"
+                          className="btn btn-primary"
                         >
                           {" "}
                           Delete Article

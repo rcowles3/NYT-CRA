@@ -1,4 +1,3 @@
-
 .jumbotron {
   margin-top: 25px;
 }
@@ -9,24 +8,26 @@
   /* margin-left: 25px; */
 }
 
-.footer, .navbar {
+.footer,
+.navbar {
   margin-bottom: 0px;
-  background-color: rgb(14, 39, 77);  
-  color: #fff; 
+  background-color: #343a40 !important;
+  color: #fff;
 }
 
-.footer, .navbar-default, .navbar-nav li a {
+.footer,
+.navbar-default,
+.navbar-nav li a {
   color: #fff !important;
 }
 
-.navbar-default, .navbar-nav
-li
-a:hover{
+.navbar-default,
+.navbar-nav li a:hover {
   color: #b9b9b9 !important;
 }
 
 .footer {
-  padding-bottom: 5px; 
+  padding-bottom: 5px;
 }
 
 /* 
@@ -39,11 +40,12 @@ a:hover{
 }
 
 .card-heading {
-background-color: rgb(14, 39, 77);
-color: #fff;
-padding: 5px;
+  background-color: #343a40 !important;
+  color: #fff;
+  padding: 5px;
 }
 
-form, .card-body {
+form,
+.card-body {
   margin: 15px !important;
 }
